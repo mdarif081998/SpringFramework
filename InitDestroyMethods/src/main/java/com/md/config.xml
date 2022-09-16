@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config/>
+	
+<!-- 	<bean id="student" class="com.md.Student" init-method="welcome" destroy-method="bye">
+		<property name="id" value="1"/>
+		<property name="name" value="Myself"/>
+		<property name="age" value="24"/>
+		<property name="city" value="Kalaburagi"/>
+	</bean> -->
+	
+	<!-- Example of using bean lifecycle methods using interfaces
+	<bean id="student" class="com.md.usinginterfaces.Student1">
+	<property name="id" value="2"/>
+	<property name="name" value="Md"/>
+	</bean>	 -->
+	<!-- Autowire example -->
+
+<!-- 	autowiring byType, byName, constructor
+	<bean id="student" class="com.md.autowire.Student3 " autowire="byType" >
+	
+	</bean> -->
+	
+	<!-- Autowire byn  Stereotype Annotation -->
+	<bean id="student" class="com.md.autowire.Student3"></bean>
+	
+	<bean id="address1" class="com.md.autowire.Address">
+	<property name="city" value="Kalaburagi"/>
+	<property name="state" value="Karnataka"/>
+	</bean>
+	
+	<bean id="address2" class="com.md.autowire.Address">
+	<property name="city" value="Bangalore"/>
+	<property name="state" value="Karnataka"/>
+	</bean>
+</beans>  

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/util
+                http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- Constructor Injection <bean id="emp" class="com.md.Employee"> <constructor-arg 
+		value="1" type="int"></constructor-arg> </bean> -->
+	<util:list list-class="java.util.LinkedList"
+		id="mydependents">
+			<value>Father</value>
+			<value>Mother</value>
+			<value>Wife</value>
+			<value>Children</value>
+		</util:list>
+
+
+
+		<!-- Setter Injection -->
+		<bean id="emp1" class="com.md.Employee">
+			<property name="id" value="2"></property>
+			<property name="name">
+				<value>Myself</value>
+			</property>
+			<property name="dependents">
+				<ref bean="mydependents"></ref>
+			</property>
+			<property name="friends">
+				<set>
+					<value>Subbarayadu</value>
+					<value>Partha</value>
+					<value>Rahul</value>
+					<value>Shirisha</value>
+				</set>
+			</property>
+			<property name="contact">
+				<map>
+					<entry key="Jio" value="9019784193"></entry>
+					<entry key="Airtel" value="909876543" />
+				</map>
+			</property>
+			<!-- <property name="address"> <ref bean="address"/> </property> -->
+			<property name="address" ref="address" />
+		</bean>
+		<bean id="address" class="com.md.Address">
+			<property name="locality">
+				<value>Bhimnagar</value>
+			</property>
+			<property name="city" value="Kalaburagi" />
+			<property name="pinCode" value="585292" />
+		</bean>
+
+		<!-- Dependency injection (Setter Injection) Using P Schema -->
+		<!-- <bean name="emp2" class="com.md.Employee" p:id="3" p:name="Subbarayadu" 
+			/> -->
+		<!-- Bean Inheritance Example -->
+		<!-- <bean id="address1" class="com.md.Address"> <property name="locality" 
+			value="Kengeri" /> <property name="city" value="Bengaluru" /> </bean> <bean 
+			id="address2" class="com.md.Address" parent="address1"> <property name="pinCode" 
+			value="560059" /> </bean> -->
+
+</beans>  
